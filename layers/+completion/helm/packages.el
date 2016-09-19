@@ -18,6 +18,7 @@
         helm-ag
         helm-descbinds
         helm-flx
+        helm-git-grep
         helm-make
         helm-mode-manager
         helm-projectile
@@ -137,6 +138,13 @@
       (add-hook 'helm-mode-hook 'simpler-helm-bookmark-keybindings)
       (with-eval-after-load 'helm-mode ; required
         (spacemacs|hide-lighter helm-mode)))))
+
+(defun helm/init-helm-git-grep ()
+  (use-package helm-git-grep
+    :defer t
+    :init
+    (spacemacs/set-leader-keys
+      "sgv" 'helm-git-grep)))
 
 (defun helm/init-helm-ag ()
   (use-package helm-ag
